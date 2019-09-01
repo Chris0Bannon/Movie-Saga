@@ -55,3 +55,19 @@ VALUES
 ('Science Fiction'),
 ('Space-Opera'),
 ('Superhero');
+
+--sql puzzle
+
+CREATE TABLE "genres_movies"
+(
+  "id" SERIAL PRIMARY KEY,
+  "genres_id" INT REFERENCES "genres",
+  "movies_id" INT REFERENCES "movies"
+);
+
+
+SELECT "genres".name
+FROM "genres"
+  JOIN "genres_movies" ON
+"genres".id = "genres_movies".genres_id
+WHERE "genres_movies".movies_id = 1;
