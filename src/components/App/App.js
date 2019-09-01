@@ -24,7 +24,7 @@ this.props.dispatch({
         <p>Empty Page</p>
       </div>
       <Route exact path= "/" component={Movies}/>
-      <Route path="/details" component={Details}/>
+      <Route path="/details/:id" component={Details}/>
       </Router>
     );
   }

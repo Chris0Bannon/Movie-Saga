@@ -8,9 +8,20 @@ class Movies extends Component {
     });
   };
 
-  movieClicker = event => {
-    console.log("you clicked a movie");
-    this.props.history.push("/details");
+getDetails = (id) => {
+   let action = {
+      type: "FETCH_DETAILS",
+      payload: id
+    };
+    console.log(action);
+    this.props.dispatch(action);
+
+}
+
+  movieClicker = id => {
+    console.log("you clicked a movie", id);
+    this.getDetails(id);
+    this.props.history.push(`/details/:${id}`);
   };
 
   render() {
@@ -19,9 +30,9 @@ class Movies extends Component {
         <h1>Hello from Movies!</h1>
         <ul>
           {this.props.reduxStore.movies.map(film => (
-            <li key={film.id} onClick={this.movieClicker}>
+            <li key={film.id} onClick={() => {this.movieClicker(film.id)}}>
               {" "}
-              <img src={film.poster} />
+              <img src={film.poster} alt= ""/>
               {film.title} {film.description}{" "}
             </li>
           ))}
