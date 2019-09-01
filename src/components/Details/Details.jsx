@@ -24,6 +24,10 @@ class Details extends Component {
     this.props.dispatch(action);
   };
 
+handleBack = event => {
+    this.props.history.push('/');
+}
+
   render() {
     return (
       <div>
@@ -40,6 +44,7 @@ class Details extends Component {
           {this.props.reduxStore.details.description}
         </h1>
         <img src={this.props.reduxStore.details.poster} alt="" />
+        <button onClick= {this.handleBack}>Back to List</button>
       </div>
     );
   }
