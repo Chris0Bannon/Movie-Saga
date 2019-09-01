@@ -17,11 +17,19 @@ import {takeEvery, put} from 'redux-saga/effects';
 function* rootSaga() {
 yield takeEvery('GET_MOVIES', getMovies)
 yield takeEvery('FETCH_DETAILS', getDetails)
+yield takeEvery('FETCH_GENRES', getGenres)
 }
 
 function* getGenres (action) {
     try{ 
-        let result = axios.get(`/genres/${action.payload}`)
+        let result = yield axios.get(`/movies/genres/${action.payload}`)
+        yield put({
+            type:'SET_GENRES',
+            payload: result.data
+        })
+    }catch(error) {
+        console.log('error in fetch genres', error);
+        
     }
 }
 

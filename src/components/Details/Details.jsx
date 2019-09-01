@@ -3,8 +3,17 @@ import {connect} from 'react-redux';
 
 class Details extends Component {
   componentDidMount = () => {
-      this.getDetails()
+      this.getDetails();
+      this.getGenres();
   };
+
+  getGenres = id => {
+      let action = {
+          type: 'FETCH_GENRES',
+          payload: this.props.match.params.id
+      };
+      this.props.dispatch(action)
+  }
 
   getDetails = id => {
     let action = {
@@ -18,6 +27,13 @@ class Details extends Component {
   render() {
     return (
       <div>
+          <ul>
+              {this.props.reduxStore.genres.map((style)=> {
+                  return (
+                      <li>{style.name}</li>
+                  )
+              })}
+          </ul>
         <h1>
           Hello From Details!
           {this.props.reduxStore.details.title}
