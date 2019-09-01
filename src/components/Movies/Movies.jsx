@@ -15,13 +15,12 @@ getDetails = (id) => {
     };
     console.log(action);
     this.props.dispatch(action);
-
 }
 
   movieClicker = id => {
     console.log("you clicked a movie", id);
     this.getDetails(id);
-    this.props.history.push(`/details/:${id}`);
+    this.props.history.push(`/details/${id}`);
   };
 
   render() {

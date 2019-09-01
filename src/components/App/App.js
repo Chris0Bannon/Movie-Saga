@@ -19,8 +19,6 @@ this.props.dispatch({
     return (
       <Router>
       <div className="App">
-        {/* <Details/> */}
-        {/* <Movies/> */}
         <p>Empty Page</p>
       </div>
       <Route exact path= "/" component={Movies}/>
