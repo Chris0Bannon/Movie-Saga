@@ -19,12 +19,12 @@ this.props.dispatch({
     return (
       <Router>
       <div className="App">
-        <Details/>
-        <Movies/>
+        {/* <Details/> */}
+        {/* <Movies/> */}
         <p>Empty Page</p>
       </div>
-      <Route exact path = "/" Component={Movies}/>
-      <Route path = "/details" Component={Details}/>
+      <Route exact path= "/" component={Movies}/>
+      <Route path="/details" component={Details}/>
       </Router>
     );
   }

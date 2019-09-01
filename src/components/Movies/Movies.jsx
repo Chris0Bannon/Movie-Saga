@@ -8,8 +8,9 @@ class Movies extends Component {
     });
   };
 
-  movieClicker = id => {
-    console.log("you clicked a movie", id);
+  movieClicker = event => {
+    console.log("you clicked a movie");
+    this.props.history.push("/details");
   };
 
   render() {
