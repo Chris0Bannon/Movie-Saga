@@ -19,6 +19,11 @@ yield takeEvery('GET_MOVIES', getMovies)
 yield takeEvery('FETCH_DETAILS', getDetails)
 }
 
+function* getGenres (action) {
+    try{ 
+        let result = axios.get(`/genres/${action.payload}`)
+    }
+}
 
 function * getDetails (action){
 try{
