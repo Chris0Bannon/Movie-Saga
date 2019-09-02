@@ -18,6 +18,18 @@ function* rootSaga() {
 yield takeEvery('GET_MOVIES', getMovies)
 yield takeEvery('FETCH_DETAILS', getDetails)
 yield takeEvery('FETCH_GENRES', getGenres)
+yield takeEvery('EDIT_MOVIES', editMovies)
+}
+
+function*editMovies (action) {
+    try{
+        yield axios.put(`/movies/edit/${action.payload.id}`, { title: action.payload.title, description: action.payload.description})
+        yield put({
+            type: 'GET_MOVIES'
+        })
+    }catch(error) {
+        console.log('error in edit movies', error);
+    }
 }
 
 function* getGenres (action) {
