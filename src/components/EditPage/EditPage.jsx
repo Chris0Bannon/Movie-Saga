@@ -6,10 +6,18 @@ class EditPage extends Component {
 
     }
 
+    handleBack = () => {
+        this.props.history.push(`/details/${this.props.match.params.id}`)
+    }
+
     render() {
-        return(
-        <h1>Hello from EditPage</h1>
-        )
+        return (
+          <div>
+            <h1>Hello from EditPage</h1>
+            <button onClick = {this.handleBack}>Cancel</button>
+            <button onClick= {this.handleSaveChanges}>Save Changes</button>
+          </div>
+        );
     }
 
 }
