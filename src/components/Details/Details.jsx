@@ -24,8 +24,11 @@ class Details extends Component {
     this.props.dispatch(action);
   };
 
-handleBack = event => {
+handleBack = () => {
     this.props.history.push('/');
+}
+editPage = () => {
+    this.props.history.push(`/editPage/${this.props.match.params.id}`)
 }
 
   render() {
@@ -34,7 +37,7 @@ handleBack = event => {
           <ul>
               {this.props.reduxStore.genres.map((style)=> {
                   return (
-                      <li>{style.name}</li>
+                      <li key = {style.name}>{style.name}</li>
                   )
               })}
           </ul>
@@ -45,6 +48,7 @@ handleBack = event => {
         </h1>
         <img src={this.props.reduxStore.details.poster} alt="" />
         <button onClick= {this.handleBack}>Back to List</button>
+        <button onClick ={this.editPage}>Click to edit this movie</button>
       </div>
     );
   }

@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import Details from '../Details/Details';
+import EditPage from '../EditPage/EditPage';
+
 
 class App extends Component {
 
@@ -19,10 +21,10 @@ this.props.dispatch({
     return (
       <Router>
       <div className="App">
-        <p>Empty Page</p>
       </div>
       <Route exact path= "/" component={Movies}/>
       <Route path="/details/:id" component={Details}/>
+      <Route path="/editPage/:id" component={EditPage}/> 
       </Router>
     );
   }
