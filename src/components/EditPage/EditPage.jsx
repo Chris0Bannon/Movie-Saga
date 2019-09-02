@@ -43,7 +43,7 @@ class EditPage extends Component {
     return (
       <div>
         <h1>Hello from EditPage</h1>
-        <input onChange={this.handleTitleChange} />
+        <input onChange={this.handleTitleChange}/>
         <input onChange={this.handleDescriptionChange} />
         <button onClick={this.handleBack}>Cancel</button>
         <button onClick={this.handleSaveChanges}>Save Changes</button>
